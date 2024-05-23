@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Skill Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Your Dashboard</h2>
+    <div class="goals-section">
+        <h3>Goals</h3>
+        <!-- Add a list of user's goals with links to their detail pages -->
+        <!-- Example:
+        <ul>
+            <li><a href="/goal/1">Learn Python</a></li>
+            <li><a href="/goal/2">Improve Public Speaking</a></li>
+        </ul>
+        -->
+    </div>
+    <div class="skills-section">
+        <h3>Skills</h3>
+        <!-- Add a list of user's skills with links to their detail pages -->
+        <!-- Example:
+        <ul>
+            <li>
+                <a href="/skill/1">Python Programming</a>
+                <span>Hours Logged: 20</span> <!-- Display hours logged for this skill -->
+            </li>
+            <li>
+                <a href="/skill/2">Public Speaking</a>
+                <span>Hours Logged: 15</span> <!-- Display hours logged for this skill -->
+            </li>
+        </ul>
+        -->
+    </div>
+    <div class="logs-section">
+        <h3>Skill Logs</h3>
+        <!-- Add a list of recent skill logs or a summary of skill log data -->
+        <!-- Example:
+        <p>You've logged 10 hours of Python Programming this week.</p>
+        -->
+    </div>
+</div>
+{% endblock %}
