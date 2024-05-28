@@ -6,18 +6,6 @@
 <div class="container">
     <h2>Your Dashboard</h2>
     
-    <!-- Goals Section -->
-    <div class="goals-section">
-        <h3>Goals</h3>
-        <ul>
-            {% for goal in goals %}
-            <li>
-                <a href="{{ url_for('goal_detail', goal_id=goal.id) }}">{{ goal.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    
     <!-- Skills Section -->
     <div class="skills-section">
         <h3>Skills</h3>
@@ -27,6 +15,10 @@
                 <a href="{{ url_for('skill_detail', skill_id=skill.id) }}">{{ skill.name }}</a>
                 <span>Hours Logged: {{ skill.hours_logged }}</span>
                 <p>{{ skill.goal_details }}</p>
+                <!-- Delete Button -->
+                <form action="{{ url_for('delete_skill', skill_id=skill.id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this skill?');">
+                    <button type="submit" class="delete-button">Delete Skill</button>
+                </form>
             </li>
             {% endfor %}
         </ul>
@@ -34,35 +26,22 @@
         <!-- Add New Skill Form -->
         <h4>Add New Skill</h4>
         <form action="{{ url_for('add_skill') }}" method="post">
-            <label for="skill_name">Skill Name:</label>
-            <input type="text" id="skill_name" name="skill_name" required>
+            <div>
+                <label for="skill_name">Skill Name:</label>
+                <input type="text" id="skill_name" name="skill_name" required>
+            </div>
+
+            <div>
+                <label for="hours_logged">Hours Logged:</label>
+                <input type="number" id="hours_logged" name="hours_logged" required>
+            </div>
             
-            <label for="hours_logged">Hours Logged:</label>
-            <input type="number" id="hours_logged" name="hours_logged" required>
-            
-            <!-- 
-            <label for="goal">Goal:</label>
-            <select id="goal" name="goal_id" required>
-                {% for goal in goals %}
-                <option value="{{ goal.id }}">{{ goal.title }}</option>
-                {% endfor %}
-            </select>
-            -->
-            
-            <label for="goal_details">Goal Details:</label>
-            <textarea id="goal_details" name="goal_details" rows="4" cols="50" placeholder="Enter details about your goal"></textarea>
-            
+            <div>
+                <label for="goal_details">Skill Details:</label>
+                <textarea id="goal_details" name="goal_details" rows="4" cols="50" placeholder="Enter details about your skill"></textarea>
+            </div>
             <button type="submit">Add Skill</button>
         </form>
-    </div>
-    
-    <!-- Logs Section -->
-    <div class="logs-section">
-        <h3>Skill Logs</h3>
-        <!-- Add a list of recent skill logs or a summary of skill log data -->
-        <!-- Example:
-        <p>You've logged 10 hours of Python Programming this week.</p>
-        -->
     </div>
 </div>
 {% endblock %}

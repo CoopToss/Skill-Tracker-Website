@@ -1,5 +1,5 @@
-from flask import redirect, url_for, render_template, request
-from flask_login import login_user, logout_user, current_user
+from flask import redirect, url_for, render_template, request, flash, abort
+from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db
 from app.models import User, Skill, Goal
 
@@ -115,4 +115,17 @@ def skill_detail(skill_id):
     return render_template('skill_detail.html', skill=skill, goal_details=goal_details)
 
     # Handle invalid HTTP methods
+    return redirect(url_for('dashboard'))
+
+@app.route('/delete_skill/<int:skill_id>', methods=['POST'])
+
+@login_required
+def delete_skill(skill_id):
+    skill = Skill.query.get_or_404(skill_id)
+    # Check if the skill belongs to the current user
+    if skill.user != current_user:
+        abort(403)  # Forbidden
+    db.session.delete(skill)
+    db.session.commit()
+    flash('Skill has been deleted!', 'success')
     return redirect(url_for('dashboard'))

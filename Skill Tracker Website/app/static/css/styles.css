@@ -2,20 +2,31 @@
 body, h1, h2, h3, h4, p, ul, ol, li, input, button {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
+    text-align: center;
 }
 
 /* Body styles */
 body {
-    background-color: #f4f4f4;
+    background:
+      linear-gradient(to top, #ffffff, rgba(0, 255, 255, 0.8)),
+      linear-gradient(to right, grey, white);
     color: #333;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content area to push footer to the bottom */
+main {
+    flex: 1;
 }
 
 /* Header styles */
 header {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #000000;
+    color: #00FFFF;
     padding: 20px;
     text-align: center;
 }
@@ -29,54 +40,180 @@ nav {
 
 nav ul {
     list-style-type: none;
+    display: inline;
+    padding: 0;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 10px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffffff; /* Adds a hover effect */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background:
+      linear-gradient(to top, #ffffff, rgba(0, 255, 255, 0.8)),
+      linear-gradient(to right, grey, white);
+    color:#000000;
 }
 
 /* Form styles */
 form {
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: transparent;
+    color: #000000;
+    font-weight: bold;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 400px;
+    text-align: center;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: calc(100% - 20px); /* Reduce width to account for padding */
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin: 10px auto; /* Add vertical margin and auto left/right margin to center */
+    border: 1px solid #00FFFF;
     border-radius: 3px;
+    display: block; /* Ensure block display for centering */
+}
+
+textarea {
+    width: calc(100% - 20px); /* Reduce width to account for padding */
+    padding: 10px;
+    margin: 20px auto; /* Add vertical margin and auto left/right margin to center */
+    border: 1px solid #00FFFF;
+    border-radius: 3px;
+    display: block; /* Ensure block display for centering */
+    resize: vertical;
 }
 
 button {
     display: block;
-    width: 100%;
+    width: calc(100% - 20px); /* Reduce width to account for padding */
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+    margin: 10px auto; /* Add vertical margin and auto left/right margin to center */
+    background-color: #00FFFF;
+    color: #000000;
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #007FFF;
 }
 
+/* Goals and Skills section */
+.goals-section, .skills-section {
+    margin: 20px 0;
+}
+
+h2 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3, h4 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: transparent; /* Make the background transparent */
+    color: #000000; /* Keep the text color */
+    margin-bottom: 10px; /* Maintain margin between items */
+    padding: 10px; /* Maintain padding inside items */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: none; /* Remove any shadow */
+}
+
+ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+    color:#ffffff;
+}
+
+ul li a span p {
+    color: #000000;
+}
+
+/* Text danger */
 .text-danger {
     color: #dc3545;
+}
+
+/* Additional styles */
+.container {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color:#00FFFF;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Footer styles */
+footer {
+    background-color: #000000;
+    color: #00FFFF;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+form div {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.delete-button {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-button:hover {
+    background-color: #CC0000;
 }
